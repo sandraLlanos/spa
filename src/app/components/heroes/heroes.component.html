@@ -6,10 +6,10 @@
             <h5 class="card-title">{{ hero.nombre }}</h5>
             <p class="card-text">{{ hero.bio }}</p>
             <p class="card-text"><small class="text-muted">{{ hero.aparicion }}</small></p>
-        <!-- <button type="button" class="btn btn-outline-primary btn-block">
+        <button type="button" class="btn btn-outline-primary btn-block" (click)="verHeroes(i)">
             Ver más...
-        </button> -->
-        <a [routerLink]="['/hero', i]" class="btn btn-outline-primary btn-block">Ver mas Link...</a>
+        </button>
+        <!-- <a [routerLink]="['/hero', i]" class="btn btn-outline-primary btn-block">Ver mas Link...</a> -->
         </div>
     </div>
 </div>
