@@ -11,29 +11,21 @@ import { HeroService } from '../../services/hero.service';
 export class HeroComponent implements OnInit {
   hero: any = {};
   casa: string;
-  casaHero: boolean;
+
   constructor( private _activatedRoute:ActivatedRoute,
               private _heroService:HeroService
     ) {
 
+   //method for get id by URL   
    this._activatedRoute.params.subscribe(params => {
-     console.log(params['id'])
-     this.hero = this._heroService.getHero(params['id']);
-     console.log(this.hero);
+    //  console.log(params['id'])
+     this.hero = this._heroService.getHero(params['id']);     
+    // console.log(this.hero);
     })
-   }
 
-   MostrarCasa(){
-     this.casa = this.hero.casa;
-      if (this.casa == "Marvel"){
-        this.casaHero = true;
-      }else{
-        this.casaHero = false;
-      }
    }
 
   ngOnInit() {
-    this.MostrarCasa();
   }
 
 }

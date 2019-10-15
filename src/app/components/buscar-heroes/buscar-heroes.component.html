@@ -1,7 +1,15 @@
-<h1>Heroes <small>Marvel y DC</small></h1>
-<div class="card-columns">
-    <!-- all this code, it will be repeated several times -->
+<h1>Buscando:  <small>{{ termino }}</small></h1>
+<hr>
 
+<div class="row" *ngIf = "heroes.length == 0 ">
+    <div class="col-md-12">
+        <div class="alert alert-info">
+            No existen resultados para la búsqueda de: <strong> {{ termino }} </strong>
+        </div>
+    </div>
+</div>
+
+<div class="card-columns">
     <!-- <div class="card" *ngFor="let hero of heroes; let i = index">
         <img [src]="hero.img"  class="card-img-top" alt="{{hero.nombre}}">
         <div class="card-body">
@@ -11,15 +19,12 @@
         <button type="button" class="btn btn-outline-primary btn-block" (click)="verHeroes(i)">
             Ver más...
         </button>
-        <a [routerLink]="['/hero', i]" class="btn btn-outline-primary btn-block">Ver mas Link...</a>
         </div>
     </div> -->
-
-    <!-- we wiil pass the code into heroeTarjeta -->
-
-    <app-heroe-tarjeta [hero]="foo" [ind]="i" *ngFor="let foo of heroes; let i = index"></app-heroe-tarjeta>
+    <app-heroe-tarjeta [hero]="heros" [ind]="i" *ngFor="let heros of heroes; let i = index" ></app-heroe-tarjeta>
 </div>
     
     
     
     
+

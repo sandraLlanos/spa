@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HeroesComponent } from '../components/heroes/heroes.component';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,21 @@ export class HeroService {
   }
   getHero(i){
     return this.heroes[i];
+  }
+  
+  buscarHeroes( termino:string ):Heroe[]{
+
+    let arrayHeroes:Heroe[] = [];
+    termino = termino.toLowerCase();
+
+    for ( let heroe of this.heroes ){
+      let nombre = heroe.nombre.toLowerCase();
+
+      if (nombre.indexOf(termino)>=0) {
+        arrayHeroes.push(heroe);
+      }
+    }
+    return arrayHeroes;      
   }
 }
 
