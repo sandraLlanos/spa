@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +10,20 @@ export class HeroeTarjetaComponent implements OnInit {
 
 //  @Imput() is a decorator to receive information from a parent component
   @Input() hero: any = {};
-  @Input() ind:number;
+  @Input() ind: number;
+
+  @Output() heroeSeleccionado: EventEmitter<number> ;
   
-  constructor( private _router:Router) { }
+  constructor( private _router:Router) {
+
+    this.heroeSeleccionado = new EventEmitter();
+
+   }
   
-  verHeroes(ind){
-    // console.log(this.ind);
-    this._router.navigate(["/hero", this.ind]);     
+  verHeroes(){
+    // console.log(this.ind); 
+    // this.heroeSeleccionado.emit( this.ind );
+    this._router.navigate(['/hero', this.ind]); 
    }
   
   ngOnInit() {

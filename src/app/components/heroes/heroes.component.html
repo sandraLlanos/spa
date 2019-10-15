@@ -16,8 +16,8 @@
     </div> -->
 
     <!-- we wiil pass the code into heroeTarjeta -->
-
-    <app-heroe-tarjeta [hero]="foo" [ind]="i" *ngFor="let foo of heroes; let i = index"></app-heroe-tarjeta>
+    
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroes( $event )" [hero]="foo" [ind]="i" *ngFor="let foo of heroes; let i = index"></app-heroe-tarjeta>
 </div>
     
     
